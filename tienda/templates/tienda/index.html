@@ -1,11 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   {% block titulo %} <title>Tienda Online</title>{% endblock %}
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #240bca;
+            box-shadow:  0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #ffffff;
+            
+        }
+
+        .navbar-brand:hover {
+            color: hsl(258, 94%, 48%);
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 60px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .hero h1 {
+            color: #212529;
+        }
+
+        .hero p {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
 </head>
+
 <body>
-    oferta en todos nuestros productos...
+
+    <!-- NAVBAR -->
+   {%  block navbar %} <nav  class="navbar navbar-expand-lg">
+        <div class="container" >
+            <a class="navbar-brand" href="#">🛒 Mi Tienda</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'productos' %}"> Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Venta</a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link" href="#"> Cliente</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+    <!-- CONTENIDO PRINCIPAL -->
+     {% block contenido  %}
+    <div class="container mt-5">
+        <div class="hero text-center">
+            <h1 class="mb-3">Ofertas en todos nuestros productos</h1>
+            <p>
+                Bienvenido a nuestra tienda en línea.  
+                Encuentra los mejores productos, precios increíbles y una excelente atención.
+            </p>
+
+            <a href="#" class="btn btn-primary btn-lg mt-3">
+                Ver Productos
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 - Tienda Online | Todos los derechos reservados
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

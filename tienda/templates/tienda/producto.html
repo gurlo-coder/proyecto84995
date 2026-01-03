@@ -1,11 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>departamento</title>
-</head>
-<body>
-    {{departamentos}}
-</body>
-</html>
+{% extends 'tienda/index.html' %}
+
+{% block titulo %}
+<title>Departamentos</title>
+{% endblock %}
+
+{% block bienvenido %}
+{% endblock %}
+
+{% block contenido %}
+<br>
+
+<div class="container">
+    <h2>Departamento de los productos</h2>
+</div>
+
+{% if departamentos %}
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th>Id_producto</th>
+            <th>Nbre_producto</th>
+            <th>Precio_producto</th>
+            <th>Sku_producto</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in departamentos %}
+        <tr>
+            <td>{{ producto.id_producto }}</td>
+            <td>{{ producto.nbre_producto }}</td>
+            <td>{{ producto.precio_producto }}</td>
+            <td>{{ producto.sku_producto }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No hay productos disponibles.</p>
+{% endif %}
+
+{% endblock %}
+
+
+    
