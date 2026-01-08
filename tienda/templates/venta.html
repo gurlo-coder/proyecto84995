@@ -1,0 +1,68 @@
+{% extends 'tienda/index.html'%}
+
+
+{% block titulo %}  {% endblock %}
+
+{% block contenido %}
+
+    <div class="container mt-5">
+        <div class="hero text-center">
+            <h1 class="mb-3">Ofertas en todos nuestros productos</h1>
+            <p>
+                Bienvenido a nuestra tienda en línea.  
+                Encuentra los mejores productos, precios increíbles y una excelente atención.
+            </p>
+
+            <a href="{% url 'productos' %}" class="btn btn-primary btn-lg mt-3">
+                Ver Productos
+            </a>
+
+             <a href="{% url 'cliente' %}" class="btn btn-success btn-lg mt-3">
+                Ver Cliente
+            </a>
+             
+
+             <a href="{% url 'venta' %}" class="btn btn-warning btn-lg mt-3">
+                Ver Venta
+            </a>
+             <a href="{% url 'home' %}" class="btn btn-secondary btn-lg mt-3">
+                Ir al Home
+            </a>
+        </div>
+    </div>
+    
+<br>
+
+<div class="container">
+    <h2>Departamento de las ventas</h2>
+</div>
+{% if Ventas %}
+    <table class="table">
+  <thead>
+    <tr>
+      <th>ID_Venta</th>
+      <th>Nbre_Producto</th>
+      <th >Nbre_Cliente</th>
+      <th>ID_Producto</th>
+      <th>Fecha_de_venta</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+
+    {%  for venta in Ventas %}
+    <tr>
+      <td class="fw-semibold">{{venta.id_venta}}</td>
+      <td>{{venta.nbre_producto}}</td>
+      <td>{{venta.nbre_cliente}}</td>
+      <td>{{venta.id_producto}}</td>
+       <td>{{venta.fecha_de_venta}}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+{% else%}
+<p>No hay venta registrada</p>
+
+{% endif %}
+
+    {% endblock %}

@@ -1,0 +1,81 @@
+{%  extends 'tienda/index.html'%}
+
+
+
+{% block titulo %}
+<title>Clientes</title>
+{% endblock %}
+
+{% block entra %}
+
+   
+{% endblock %}
+
+
+{% block contenido %} 
+
+    <div class="container mt-5">
+        <div class="hero text-center">
+            <h1 class="mb-3">Ofertas en todos nuestros productos</h1>
+            <p>
+                Bienvenido a nuestra tienda en línea.  
+                Encuentra los mejores productos, precios increíbles y una excelente atención.
+            </p>
+
+            <a href="{% url 'productos' %}" class="btn btn-primary btn-lg mt-3">
+                Ver Productos
+            </a>
+
+             <a href="{% url 'cliente' %}" class="btn btn-success btn-lg mt-3">
+                Ver Cliente
+            </a>
+             
+
+             <a href="{% url 'venta' %}" class="btn btn-warning btn-lg mt-3">
+                Ver Venta
+            </a>
+             <a href="{% url 'home' %}" class="btn btn-secondary btn-lg mt-3">
+                Ir al home
+            </a>
+        </div>
+    </div>
+     
+ 
+<div class="container">
+    <h2>Section de los Clientes</h2>
+
+</div>
+{% if Clientes %}
+<table class="table table-primary">
+  <thead class="table-primary">
+    <tr>
+      <th >id_cliente</th>
+      <th >nbre_cliente</th>
+      <th >apellido_cliente</th>
+      <th >id_producto</th>
+      <th >email_cliente</th>
+      <th >tel_cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in Clientes %}
+    <tr>
+      
+      <td class="fw-semibold">{{cliente.id_cliente}}</td>
+      <td>{{ cliente.nbre_cliente }}</td> 
+      <td>{{ cliente.apellido_cliente }}</td>
+       <td>{{ cliente.id_cliente }}</td>
+      <td>{{ cliente.email_cliente }}</td>
+      <td>{{ cliente.tel_cliente }}</td>
+    </tr>
+    {%  endfor %}
+    
+  </tbody>
+</table>
+{% else %}
+<p>
+    No hay cliente disponible
+</p>
+{% endif %}
+
+{% endblock %}

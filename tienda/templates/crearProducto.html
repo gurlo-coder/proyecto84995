@@ -1,0 +1,49 @@
+{% extends 'tienda/index.html' %}
+
+{% block titulo %} <title>Tienda-Crear Producto</title> {% endblock %}
+
+{% block Bienvenida %} {% endblock %}
+
+{% block contenido %} 
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h3 class="mb-4">Crear Producto</h3>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">ID Producto</label>
+                    {{ form.id_producto }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre del Producto</label>
+                    {{ form.nbre_producto }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Precio</label>
+                    {{ form.precio_producto }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">SKU</label>
+                    {{ form.sku_producto }}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Guardar Producto
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
+{% endblock %}

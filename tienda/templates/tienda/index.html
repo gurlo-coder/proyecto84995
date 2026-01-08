@@ -53,6 +53,7 @@
             text-align: center;
             color: #6c757d;
         }
+        
     </style>
 </head>
 
@@ -70,21 +71,21 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'productos' %}"> Producto</a>
+                        <a class="nav-link "  href="{% url 'productos' %}" > Producto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Venta</a>
+                        <a class="nav-link" href="{% url 'venta' %}"> Venta</a>
                     </li>
                     <li class="nav-item " >
-                        <a class="nav-link" href="#"> Cliente</a>
+                        <a class="nav-link" href="{%  url 'cliente' %}"> Cliente</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 {% endblock %}
-    <!-- CONTENIDO PRINCIPAL -->
-     {% block contenido  %}
+    {% block contenido %}
+   <!-- CONTENIDO PRINCIPAL -->
     <div class="container mt-5">
         <div class="hero text-center">
             <h1 class="mb-3">Ofertas en todos nuestros productos</h1>
@@ -93,14 +94,21 @@
                 Encuentra los mejores productos, precios increíbles y una excelente atención.
             </p>
 
-            <a href="#" class="btn btn-primary btn-lg mt-3">
+            <a href="{%  url 'productos' %}" class="btn btn-primary btn-lg mt-3">
                 Ver Productos
+            </a>
+            <a href="{% url 'cliente' %}" class="btn btn-success btn-lg mt-3">
+                Ver Cliente
+            </a>
+            <a href="{% url 'venta' %}" class="btn btn-warning btn-lg mt-3">
+                Ver Venta
             </a>
         </div>
     </div>
-    {% endblock %}
-
+{% endblock %}
     <!-- FOOTER -->
+
+
     <footer>
         © 2026 - Tienda Online | Todos los derechos reservados
     </footer>

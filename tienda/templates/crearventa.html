@@ -1,0 +1,78 @@
+{% extends 'tienda/index.html' %} 
+
+{% block titulo %} {% endblock %}
+
+{% block bienvenida %}   {% endblock %}
+
+{% block contenido%} 
+
+
+    <div class="container mt-5">
+        <div class="hero text-center">
+            <h1 class="mb-3">Ofertas en todos nuestros productos</h1>
+            <p>
+                Bienvenido a nuestra tienda en línea.  
+                Encuentra los mejores productos, precios increíbles y una excelente atención.
+            </p>
+
+            <a href="{% url 'productos' %}" class="btn btn-primary btn-lg mt-3">
+                Ver Productos
+            </a>
+             <a href="{% url 'cliente' %}" class="btn btn-success btn-lg mt-3">
+                Ver cliente
+            </a>
+             <a href="{%  url 'venta' %}" class="btn btn-primary btn-lg mt-3">
+                Ver Venta
+            </a>
+        </div>
+    </div>
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Registrar Venta</h5>
+                </div>
+
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">ID Venta</label>
+                            {{ form.id_venta }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del Producto</label>
+                            {{ form.nbre_producto }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del Cliente</label>
+                            {{ form.nbre_cliente }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">ID Producto</label>
+                            {{ form.id_producto }}
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Guardar Venta
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% endblock %}
